@@ -1,11 +1,11 @@
 
-# RateLimitResponse
+# SingleMediaResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** | Error message |  [optional]
 **success** | **Boolean** | If the request was successful |  [optional]
+**media** | [**Media**](Media.md) |  |  [optional]
 
 
 

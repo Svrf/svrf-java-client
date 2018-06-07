@@ -1,4 +1,4 @@
-# svrf-java-client
+# svrf-client
 
 ## Requirements
 
@@ -26,9 +26,9 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-    <groupId>io.swagger</groupId>
-    <artifactId>swagger-java-client</artifactId>
-    <version>1.0.0</version>
+    <groupId>com.svrf.client</groupId>
+    <artifactId>svrf-client</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.swagger:swagger-java-client:1.0.0"
+compile "com.svrf.client:svrf-client:1.0.0-SNAPSHOT"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/swagger-java-client-1.0.0.jar
+* target/svrf-client-1.0.0-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -58,10 +58,10 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.AuthenticateApi;
+import com.svrf.client.*;
+import com.svrf.client.auth.*;
+import com.svrf.client.model.*;
+import com.svrf.client.api.AuthenticateApi;
 
 import java.io.File;
 import java.util.*;
@@ -69,16 +69,11 @@ import java.util.*;
 public class AuthenticateApiExample {
 
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
-        
-
         AuthenticateApi apiInstance = new AuthenticateApi();
-        
         Body body = new Body(); // Body | 
-        
         try {
-            InlineResponse2001 result = apiInstance.appAuthenticatePost(body);
+            AuthResponse result = apiInstance.appAuthenticatePost(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AuthenticateApi#appAuthenticatePost");
@@ -104,19 +99,19 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [APIKey](docs/APIKey.md)
- - [BasicResponse](docs/BasicResponse.md)
  - [Body](docs/Body.md)
- - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse2001](docs/InlineResponse2001.md)
- - [InlineResponse2002](docs/InlineResponse2002.md)
- - [InlineResponse400](docs/InlineResponse400.md)
- - [InlineResponse404](docs/InlineResponse404.md)
+ - [ErrorResponse](docs/ErrorResponse.md)
  - [Media](docs/Media.md)
  - [MediaFiles](docs/MediaFiles.md)
  - [MediaImages](docs/MediaImages.md)
  - [MediaStereo](docs/MediaStereo.md)
  - [MediaVideos](docs/MediaVideos.md)
+ - [SuccessResponse](docs/SuccessResponse.md)
+ - [AuthResponse](docs/AuthResponse.md)
  - [RateLimitResponse](docs/RateLimitResponse.md)
+ - [SearchMediaResponse](docs/SearchMediaResponse.md)
+ - [SingleMediaResponse](docs/SingleMediaResponse.md)
+ - [TrendingResponse](docs/TrendingResponse.md)
 
 
 ## Documentation for Authorization
@@ -127,10 +122,6 @@ Authentication schemes defined for the API:
 - **Type**: API key
 - **API key parameter name**: x-app-token
 - **Location**: HTTP header
-
-
-
-
 
 
 ## Recommendation

@@ -9,11 +9,9 @@ Method | HTTP request | Description
 [**vrTrendingGet**](MediaApi.md#vrTrendingGet) | **GET** /vr/trending | Trending Endpoint
 
 
-
-
 <a name="vrIdGet"></a>
 # **vrIdGet**
-> Media vrIdGet(id)
+> SingleMediaResponse vrIdGet(id)
 
 Media by ID Endpoint
 
@@ -22,17 +20,24 @@ Fetch media by its ID.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MediaApi;
+//import com.svrf.client.ApiClient;
+//import com.svrf.client.ApiException;
+//import com.svrf.client.Configuration;
+//import com.svrf.client.auth.*;
+//import com.svrf.client.api.MediaApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
 
+// Configure API key authorization: XAppToken
+ApiKeyAuth XAppToken = (ApiKeyAuth) defaultClient.getAuthentication("XAppToken");
+XAppToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//XAppToken.setApiKeyPrefix("Token");
 
 MediaApi apiInstance = new MediaApi();
-
-String id = Arrays.asList("id_example"); // String | ID of Media
-
+String id = "id_example"; // String | ID of Media
 try {
-    Media result = apiInstance.vrIdGet(id);
+    SingleMediaResponse result = apiInstance.vrIdGet(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MediaApi#vrIdGet");
@@ -46,10 +51,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of Media |
 
-
 ### Return type
 
-[**Media**](Media.md)
+[**SingleMediaResponse**](SingleMediaResponse.md)
 
 ### Authorization
 
@@ -60,37 +64,39 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 <a name="vrSearchqqGet"></a>
 # **vrSearchqqGet**
-> InlineResponse200 vrSearchqqGet(q, type, stereoscopicType, size, pageNum)
+> SearchMediaResponse vrSearchqqGet(q, type, stereoscopicType, size, pageNum)
 
 Search Endpoint
 
-The SVRF Search Endpoint brings the power of immersive search found on [SVRF.com](https://www.svrf.com) to your app or project. SVRF&#x27;s search engine enables your users to instantly find the immersive experience they&#x27;re seeking. Content is sorted by the SVRF rating system, ensuring that the highest quality content and most prevalent search results are returned. 
+The SVRF Search Endpoint brings the power of immersive search found on [SVRF.com](https://www.svrf.com) to your app or project. SVRF&#39;s search engine enables your users to instantly find the immersive experience they&#39;re seeking. Content is sorted by the SVRF rating system, ensuring that the highest quality content and most prevalent search results are returned. 
 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MediaApi;
+//import com.svrf.client.ApiClient;
+//import com.svrf.client.ApiException;
+//import com.svrf.client.Configuration;
+//import com.svrf.client.auth.*;
+//import com.svrf.client.api.MediaApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
 
+// Configure API key authorization: XAppToken
+ApiKeyAuth XAppToken = (ApiKeyAuth) defaultClient.getAuthentication("XAppToken");
+XAppToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//XAppToken.setApiKeyPrefix("Token");
 
 MediaApi apiInstance = new MediaApi();
-
-String q = Arrays.asList("q_example"); // String | Url-encoded search query
-
-String type = Arrays.asList("type_example"); // String | The type of Media to be returned
-
-String stereoscopicType = Arrays.asList("stereoscopicType_example"); // String | Search only for Media with a particular stereoscopic type
-
-Integer size = Arrays.asList(56); // Integer | The number of results to return per-page, from 1 to 100 default: 10
-
-Integer pageNum = Arrays.asList(56); // Integer | Pagination control to fetch the next page of results, if applicable
-
+String q = "q_example"; // String | Url-encoded search query
+String type = "type_example"; // String | The type of Media to be returned
+String stereoscopicType = "stereoscopicType_example"; // String | Search only for Media with a particular stereoscopic type
+Integer size = 56; // Integer | The number of results to return per-page, from 1 to 100 default: 10
+Integer pageNum = 56; // Integer | Pagination control to fetch the next page of results, if applicable
 try {
-    InlineResponse200 result = apiInstance.vrSearchqqGet(q, type, stereoscopicType, size, pageNum);
+    SearchMediaResponse result = apiInstance.vrSearchqqGet(q, type, stereoscopicType, size, pageNum);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MediaApi#vrSearchqqGet");
@@ -105,13 +111,12 @@ Name | Type | Description  | Notes
  **q** | **String**| Url-encoded search query |
  **type** | **String**| The type of Media to be returned | [optional] [enum: photo, video]
  **stereoscopicType** | **String**| Search only for Media with a particular stereoscopic type | [optional] [enum: none, top-bottom, left-right]
- **size** | **Integer**| The number of results to return per-page, from 1 to 100 default: 10 | [optional] [enum: ]
- **pageNum** | **Integer**| Pagination control to fetch the next page of results, if applicable | [optional] [enum: ]
-
+ **size** | **Integer**| The number of results to return per-page, from 1 to 100 default: 10 | [optional]
+ **pageNum** | **Integer**| Pagination control to fetch the next page of results, if applicable | [optional]
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**SearchMediaResponse**](SearchMediaResponse.md)
 
 ### Authorization
 
@@ -122,10 +127,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 <a name="vrTrendingGet"></a>
 # **vrTrendingGet**
-> InlineResponse2002 vrTrendingGet(size, nextPageCursor)
+> TrendingResponse vrTrendingGet(size, nextPageCursor)
 
 Trending Endpoint
 
@@ -134,19 +138,25 @@ The SVRF Trending Endpoint provides your app or project with the hottest immersi
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MediaApi;
+//import com.svrf.client.ApiClient;
+//import com.svrf.client.ApiException;
+//import com.svrf.client.Configuration;
+//import com.svrf.client.auth.*;
+//import com.svrf.client.api.MediaApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
 
+// Configure API key authorization: XAppToken
+ApiKeyAuth XAppToken = (ApiKeyAuth) defaultClient.getAuthentication("XAppToken");
+XAppToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//XAppToken.setApiKeyPrefix("Token");
 
 MediaApi apiInstance = new MediaApi();
-
-Integer size = Arrays.asList(56); // Integer | The number of results per page.
-
-String nextPageCursor = Arrays.asList("nextPageCursor_example"); // String | Pass this cursor ID to get the next page of results.
-
+Integer size = 56; // Integer | The number of results per page.
+String nextPageCursor = "nextPageCursor_example"; // String | Pass this cursor ID to get the next page of results.
 try {
-    InlineResponse2002 result = apiInstance.vrTrendingGet(size, nextPageCursor);
+    TrendingResponse result = apiInstance.vrTrendingGet(size, nextPageCursor);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MediaApi#vrTrendingGet");
@@ -158,13 +168,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **Integer**| The number of results per page. | [optional] [enum: ]
+ **size** | **Integer**| The number of results per page. | [optional]
  **nextPageCursor** | **String**| Pass this cursor ID to get the next page of results. | [optional]
-
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**TrendingResponse**](TrendingResponse.md)
 
 ### Authorization
 
@@ -174,6 +183,4 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
-
 
