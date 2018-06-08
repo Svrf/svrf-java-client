@@ -27,7 +27,7 @@ import java.io.IOException;
  * Resized versions of the Media, matching the Media&#39;s type, in stereo. Only included if the Media is stereoscopic. Resolutions larger than the original size will not be included (the original is included as &#x60;max&#x60;).
  */
 @ApiModel(description = "Resized versions of the Media, matching the Media's type, in stereo. Only included if the Media is stereoscopic. Resolutions larger than the original size will not be included (the original is included as `max`).")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-07T14:15:15.326+03:00")
+
 public class MediaStereo {
   @SerializedName("848")
   private String _848 = null;

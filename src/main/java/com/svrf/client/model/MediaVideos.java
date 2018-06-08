@@ -27,7 +27,7 @@ import java.io.IOException;
  * Resized &#x60;mp4&#x60; (&#x60;H.264&#x60;) videos of the Media. Only included if the Media is &#x60;video&#x60;. Resolutions larger than the original size will not be included (the original is included as &#x60;max&#x60;). For stereoscopic content, this will be a monoscopic version of the top or left channel.
  */
 @ApiModel(description = "Resized `mp4` (`H.264`) videos of the Media. Only included if the Media is `video`. Resolutions larger than the original size will not be included (the original is included as `max`). For stereoscopic content, this will be a monoscopic version of the top or left channel.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-07T14:15:15.326+03:00")
+
 public class MediaVideos {
   @SerializedName("848")
   private String _848 = null;

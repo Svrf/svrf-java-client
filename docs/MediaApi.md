@@ -5,7 +5,7 @@ All URIs are relative to *https://api.svrf.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**vrIdGet**](MediaApi.md#vrIdGet) | **GET** /vr/{id} | Media by ID Endpoint
-[**vrSearchqqGet**](MediaApi.md#vrSearchqqGet) | **GET** /vr/search?q&#x3D;{q} | Search Endpoint
+[**vrSearchGet**](MediaApi.md#vrSearchGet) | **GET** /vr/search | Search Endpoint
 [**vrTrendingGet**](MediaApi.md#vrTrendingGet) | **GET** /vr/trending | Trending Endpoint
 
 
@@ -64,9 +64,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="vrSearchqqGet"></a>
-# **vrSearchqqGet**
-> SearchMediaResponse vrSearchqqGet(q, type, stereoscopicType, size, pageNum)
+<a name="vrSearchGet"></a>
+# **vrSearchGet**
+> SearchMediaResponse vrSearchGet(q, type, stereoscopicType, size, pageNum)
 
 Search Endpoint
 
@@ -96,10 +96,10 @@ String stereoscopicType = "stereoscopicType_example"; // String | Search only fo
 Integer size = 56; // Integer | The number of results to return per-page, from 1 to 100 default: 10
 Integer pageNum = 56; // Integer | Pagination control to fetch the next page of results, if applicable
 try {
-    SearchMediaResponse result = apiInstance.vrSearchqqGet(q, type, stereoscopicType, size, pageNum);
+    SearchMediaResponse result = apiInstance.vrSearchGet(q, type, stereoscopicType, size, pageNum);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MediaApi#vrSearchqqGet");
+    System.err.println("Exception when calling MediaApi#vrSearchGet");
     e.printStackTrace();
 }
 ```

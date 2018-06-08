@@ -27,7 +27,7 @@ import java.io.IOException;
  * Resized &#x60;jpeg&#x60; stills of the Media. For &#x60;video&#x60;, these will be stills from 1/3 of the video&#39;s duration. Resolutions larger than the original size will not be included (the original is included as &#x60;max&#x60;). For stereoscopic content, this will be a monoscopic version of the top or left channel.
  */
 @ApiModel(description = "Resized `jpeg` stills of the Media. For `video`, these will be stills from 1/3 of the video's duration. Resolutions larger than the original size will not be included (the original is included as `max`). For stereoscopic content, this will be a monoscopic version of the top or left channel.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-07T14:15:15.326+03:00")
+
 public class MediaImages {
   @SerializedName("136")
   private String _136 = null;

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * RateLimitResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-07T14:15:15.326+03:00")
+
 public class RateLimitResponse {
   @SerializedName("message")
   private String message = null;

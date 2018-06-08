@@ -182,7 +182,7 @@ public class MediaApi {
         return call;
     }
     /**
-     * Build call for vrSearchqqGet
+     * Build call for vrSearchGet
      * @param q Url-encoded search query (required)
      * @param type The type of Media to be returned (optional)
      * @param stereoscopicType Search only for Media with a particular stereoscopic type (optional)
@@ -193,11 +193,11 @@ public class MediaApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call vrSearchqqGetCall(String q, String type, String stereoscopicType, Integer size, Integer pageNum, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call vrSearchGetCall(String q, String type, String stereoscopicType, Integer size, Integer pageNum, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/vr/search?q={q}";
+        String localVarPath = "/vr/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -245,15 +245,15 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call vrSearchqqGetValidateBeforeCall(String q, String type, String stereoscopicType, Integer size, Integer pageNum, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call vrSearchGetValidateBeforeCall(String q, String type, String stereoscopicType, Integer size, Integer pageNum, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'q' is set
         if (q == null) {
-            throw new ApiException("Missing the required parameter 'q' when calling vrSearchqqGet(Async)");
+            throw new ApiException("Missing the required parameter 'q' when calling vrSearchGet(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = vrSearchqqGetCall(q, type, stereoscopicType, size, pageNum, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = vrSearchGetCall(q, type, stereoscopicType, size, pageNum, progressListener, progressRequestListener);
         return call;
 
     }
@@ -269,8 +269,8 @@ public class MediaApi {
      * @return SearchMediaResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SearchMediaResponse vrSearchqqGet(String q, String type, String stereoscopicType, Integer size, Integer pageNum) throws ApiException {
-        ApiResponse<SearchMediaResponse> resp = vrSearchqqGetWithHttpInfo(q, type, stereoscopicType, size, pageNum);
+    public SearchMediaResponse vrSearchGet(String q, String type, String stereoscopicType, Integer size, Integer pageNum) throws ApiException {
+        ApiResponse<SearchMediaResponse> resp = vrSearchGetWithHttpInfo(q, type, stereoscopicType, size, pageNum);
         return resp.getData();
     }
 
@@ -285,8 +285,8 @@ public class MediaApi {
      * @return ApiResponse&lt;SearchMediaResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<SearchMediaResponse> vrSearchqqGetWithHttpInfo(String q, String type, String stereoscopicType, Integer size, Integer pageNum) throws ApiException {
-        com.squareup.okhttp.Call call = vrSearchqqGetValidateBeforeCall(q, type, stereoscopicType, size, pageNum, null, null);
+    public ApiResponse<SearchMediaResponse> vrSearchGetWithHttpInfo(String q, String type, String stereoscopicType, Integer size, Integer pageNum) throws ApiException {
+        com.squareup.okhttp.Call call = vrSearchGetValidateBeforeCall(q, type, stereoscopicType, size, pageNum, null, null);
         Type localVarReturnType = new TypeToken<SearchMediaResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -303,7 +303,7 @@ public class MediaApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call vrSearchqqGetAsync(String q, String type, String stereoscopicType, Integer size, Integer pageNum, final ApiCallback<SearchMediaResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call vrSearchGetAsync(String q, String type, String stereoscopicType, Integer size, Integer pageNum, final ApiCallback<SearchMediaResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -324,7 +324,7 @@ public class MediaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = vrSearchqqGetValidateBeforeCall(q, type, stereoscopicType, size, pageNum, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = vrSearchGetValidateBeforeCall(q, type, stereoscopicType, size, pageNum, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SearchMediaResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
