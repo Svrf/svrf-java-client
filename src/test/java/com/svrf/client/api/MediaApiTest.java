@@ -61,13 +61,13 @@ public class MediaApiTest {
      *          if the Api call fails
      */
     @Test
-    public void vrSearchqqGetTest() throws ApiException {
+    public void vrSearchGetTest() throws ApiException {
         String q = null;
         String type = null;
         String stereoscopicType = null;
         Integer size = null;
         Integer pageNum = null;
-        SearchMediaResponse response = api.vrSearchqqGet(q, type, stereoscopicType, size, pageNum);
+        SearchMediaResponse response = api.vrSearchGet(q, type, stereoscopicType, size, pageNum);
 
         // TODO: test validations
     }

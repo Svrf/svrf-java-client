@@ -92,7 +92,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthenticateApi* | [**appAuthenticatePost**](docs/AuthenticateApi.md#appAuthenticatePost) | **POST** /app/authenticate | Authenticate application
 *MediaApi* | [**vrIdGet**](docs/MediaApi.md#vrIdGet) | **GET** /vr/{id} | Media by ID Endpoint
-*MediaApi* | [**vrSearchqqGet**](docs/MediaApi.md#vrSearchqqGet) | **GET** /vr/search?q&#x3D;{q} | Search Endpoint
+*MediaApi* | [**vrSearchGet**](docs/MediaApi.md#vrSearchGet) | **GET** /vr/search | Search Endpoint
 *MediaApi* | [**vrTrendingGet**](docs/MediaApi.md#vrTrendingGet) | **GET** /vr/trending | Trending Endpoint
 
 
