@@ -51,7 +51,7 @@ public class Media {
   private MediaFiles files = null;
 
   @SerializedName("height")
-  private Integer height = null;
+  private BigDecimal height = null;
 
   @SerializedName("id")
   private String id = null;
@@ -116,7 +116,7 @@ public class Media {
   private String url = null;
 
   @SerializedName("width")
-  private Integer width = null;
+  private BigDecimal width = null;
 
   public Media adult(Boolean adult) {
     this.adult = adult;
@@ -234,7 +234,7 @@ public class Media {
     this.files = files;
   }
 
-  public Media height(Integer height) {
+  public Media height(BigDecimal height) {
     this.height = height;
     return this;
   }
@@ -244,11 +244,11 @@ public class Media {
    * @return height
   **/
   @ApiModelProperty(value = "The height, in pixels, of the Media's source")
-  public Integer getHeight() {
+  public BigDecimal getHeight() {
     return height;
   }
 
-  public void setHeight(Integer height) {
+  public void setHeight(BigDecimal height) {
     this.height = height;
   }
 
@@ -342,7 +342,7 @@ public class Media {
     this.url = url;
   }
 
-  public Media width(Integer width) {
+  public Media width(BigDecimal width) {
     this.width = width;
     return this;
   }
@@ -352,11 +352,11 @@ public class Media {
    * @return width
   **/
   @ApiModelProperty(value = "The width, in pixels, of the Media's source")
-  public Integer getWidth() {
+  public BigDecimal getWidth() {
     return width;
   }
 
-  public void setWidth(Integer width) {
+  public void setWidth(BigDecimal width) {
     this.width = width;
   }
 
