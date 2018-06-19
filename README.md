@@ -1,8 +1,5 @@
 # svrf-client - the Java client library for the SVRF API
 
-SVRF API
-- API version: 1.0.0
-
 For more information, please visit [https://github.com/svrf/svrf-api](https://github.com/svrf/svrf-api)
 
 ## Getting Started
