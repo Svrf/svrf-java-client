@@ -45,29 +45,9 @@ public class MediaApiTest {
      *          if the Api call fails
      */
     @Test
-    public void vrIdGetTest() throws ApiException {
+    public void getByIdTest() throws ApiException {
         String id = null;
-        SingleMediaResponse response = api.vrIdGet(id);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Search Endpoint
-     *
-     * The SVRF Search Endpoint brings the power of immersive search found on [SVRF.com](https://www.svrf.com) to your app or project. SVRF&#39;s search engine enables your users to instantly find the immersive experience they&#39;re seeking. Content is sorted by the SVRF rating system, ensuring that the highest quality content and most prevalent search results are returned. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void vrSearchGetTest() throws ApiException {
-        String q = null;
-        String type = null;
-        String stereoscopicType = null;
-        Integer size = null;
-        Integer pageNum = null;
-        SearchMediaResponse response = api.vrSearchGet(q, type, stereoscopicType, size, pageNum);
+        SingleMediaResponse response = api.getById(id);
 
         // TODO: test validations
     }
@@ -81,10 +61,30 @@ public class MediaApiTest {
      *          if the Api call fails
      */
     @Test
-    public void vrTrendingGetTest() throws ApiException {
+    public void getTrendingTest() throws ApiException {
         Integer size = null;
         String nextPageCursor = null;
-        TrendingResponse response = api.vrTrendingGet(size, nextPageCursor);
+        TrendingResponse response = api.getTrending(size, nextPageCursor);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Search Endpoint
+     *
+     * The SVRF Search Endpoint brings the power of immersive search found on [SVRF.com](https://www.svrf.com) to your app or project. SVRF&#39;s search engine enables your users to instantly find the immersive experience they&#39;re seeking. Content is sorted by the SVRF rating system, ensuring that the highest quality content and most prevalent search results are returned. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void searchTest() throws ApiException {
+        String q = null;
+        String type = null;
+        String stereoscopicType = null;
+        Integer size = null;
+        Integer pageNum = null;
+        SearchMediaResponse response = api.search(q, type, stereoscopicType, size, pageNum);
 
         // TODO: test validations
     }

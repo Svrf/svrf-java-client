@@ -16,20 +16,6 @@ Building the API client library requires:
 
 ## Installation
 
-To install the API client library to your local Maven repository, simply execute:
-
-```shell
-mvn clean install
-```
-
-To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
-
-```shell
-mvn clean deploy
-```
-
-Refer to the [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html) for more information.
-
 ### Maven users
 
 Add this dependency to your project's POM:
@@ -85,10 +71,10 @@ public class AuthenticateApiExample {
         AuthenticateApi apiInstance = new AuthenticateApi();
         Body body = new Body(); // Body | 
         try {
-            AuthResponse result = apiInstance.appAuthenticatePost(body);
+            AuthResponse result = apiInstance.authenticate(body);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AuthenticateApi#appAuthenticatePost");
+            System.err.println("Exception when calling AuthenticateApi#authenticate");
             e.printStackTrace();
         }
     }
@@ -102,10 +88,10 @@ All URIs are relative to *https://api.svrf.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthenticateApi* | [**appAuthenticatePost**](docs/AuthenticateApi.md#appAuthenticatePost) | **POST** /app/authenticate | Authenticate application
-*MediaApi* | [**vrIdGet**](docs/MediaApi.md#vrIdGet) | **GET** /vr/{id} | Media by ID Endpoint
-*MediaApi* | [**vrSearchGet**](docs/MediaApi.md#vrSearchGet) | **GET** /vr/search | Search Endpoint
-*MediaApi* | [**vrTrendingGet**](docs/MediaApi.md#vrTrendingGet) | **GET** /vr/trending | Trending Endpoint
+*AuthenticateApi* | [**authenticate**](docs/AuthenticateApi.md#authenticate) | **POST** /app/authenticate | Authenticate application
+*MediaApi* | [**getById**](docs/MediaApi.md#getById) | **GET** /vr/{id} | Media by ID Endpoint
+*MediaApi* | [**getTrending**](docs/MediaApi.md#getTrending) | **GET** /vr/trending | Trending Endpoint
+*MediaApi* | [**search**](docs/MediaApi.md#search) | **GET** /vr/search | Search Endpoint
 
 
 ## Documentation for Models

@@ -59,14 +59,14 @@ public class MediaApi {
     }
 
     /**
-     * Build call for vrIdGet
+     * Build call for getById
      * @param id ID of Media (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call vrIdGetCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getByIdCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -109,15 +109,15 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call vrIdGetValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getByIdValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling vrIdGet(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling getById(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = vrIdGetCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getByIdCall(id, progressListener, progressRequestListener);
         return call;
 
     }
@@ -129,8 +129,8 @@ public class MediaApi {
      * @return SingleMediaResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SingleMediaResponse vrIdGet(String id) throws ApiException {
-        ApiResponse<SingleMediaResponse> resp = vrIdGetWithHttpInfo(id);
+    public SingleMediaResponse getById(String id) throws ApiException {
+        ApiResponse<SingleMediaResponse> resp = getByIdWithHttpInfo(id);
         return resp.getData();
     }
 
@@ -141,8 +141,8 @@ public class MediaApi {
      * @return ApiResponse&lt;SingleMediaResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<SingleMediaResponse> vrIdGetWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = vrIdGetValidateBeforeCall(id, null, null);
+    public ApiResponse<SingleMediaResponse> getByIdWithHttpInfo(String id) throws ApiException {
+        com.squareup.okhttp.Call call = getByIdValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<SingleMediaResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -155,7 +155,7 @@ public class MediaApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call vrIdGetAsync(String id, final ApiCallback<SingleMediaResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getByIdAsync(String id, final ApiCallback<SingleMediaResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -176,13 +176,138 @@ public class MediaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = vrIdGetValidateBeforeCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getByIdValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SingleMediaResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for vrSearchGet
+     * Build call for getTrending
+     * @param size The number of results per page. (optional)
+     * @param nextPageCursor Pass this cursor ID to get the next page of results. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTrendingCall(Integer size, String nextPageCursor, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/vr/trending";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (size != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
+        if (nextPageCursor != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("nextPageCursor", nextPageCursor));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "XAppToken" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTrendingValidateBeforeCall(Integer size, String nextPageCursor, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getTrendingCall(size, nextPageCursor, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Trending Endpoint
+     * The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
+     * @param size The number of results per page. (optional)
+     * @param nextPageCursor Pass this cursor ID to get the next page of results. (optional)
+     * @return TrendingResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TrendingResponse getTrending(Integer size, String nextPageCursor) throws ApiException {
+        ApiResponse<TrendingResponse> resp = getTrendingWithHttpInfo(size, nextPageCursor);
+        return resp.getData();
+    }
+
+    /**
+     * Trending Endpoint
+     * The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
+     * @param size The number of results per page. (optional)
+     * @param nextPageCursor Pass this cursor ID to get the next page of results. (optional)
+     * @return ApiResponse&lt;TrendingResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TrendingResponse> getTrendingWithHttpInfo(Integer size, String nextPageCursor) throws ApiException {
+        com.squareup.okhttp.Call call = getTrendingValidateBeforeCall(size, nextPageCursor, null, null);
+        Type localVarReturnType = new TypeToken<TrendingResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Trending Endpoint (asynchronously)
+     * The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
+     * @param size The number of results per page. (optional)
+     * @param nextPageCursor Pass this cursor ID to get the next page of results. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTrendingAsync(Integer size, String nextPageCursor, final ApiCallback<TrendingResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTrendingValidateBeforeCall(size, nextPageCursor, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TrendingResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for search
      * @param q Url-encoded search query (required)
      * @param type The type of Media to be returned (optional)
      * @param stereoscopicType Search only for Media with a particular stereoscopic type (optional)
@@ -193,7 +318,7 @@ public class MediaApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call vrSearchGetCall(String q, String type, String stereoscopicType, Integer size, Integer pageNum, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call searchCall(String q, String type, String stereoscopicType, Integer size, Integer pageNum, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -245,15 +370,15 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call vrSearchGetValidateBeforeCall(String q, String type, String stereoscopicType, Integer size, Integer pageNum, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchValidateBeforeCall(String q, String type, String stereoscopicType, Integer size, Integer pageNum, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'q' is set
         if (q == null) {
-            throw new ApiException("Missing the required parameter 'q' when calling vrSearchGet(Async)");
+            throw new ApiException("Missing the required parameter 'q' when calling search(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = vrSearchGetCall(q, type, stereoscopicType, size, pageNum, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchCall(q, type, stereoscopicType, size, pageNum, progressListener, progressRequestListener);
         return call;
 
     }
@@ -269,8 +394,8 @@ public class MediaApi {
      * @return SearchMediaResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SearchMediaResponse vrSearchGet(String q, String type, String stereoscopicType, Integer size, Integer pageNum) throws ApiException {
-        ApiResponse<SearchMediaResponse> resp = vrSearchGetWithHttpInfo(q, type, stereoscopicType, size, pageNum);
+    public SearchMediaResponse search(String q, String type, String stereoscopicType, Integer size, Integer pageNum) throws ApiException {
+        ApiResponse<SearchMediaResponse> resp = searchWithHttpInfo(q, type, stereoscopicType, size, pageNum);
         return resp.getData();
     }
 
@@ -285,8 +410,8 @@ public class MediaApi {
      * @return ApiResponse&lt;SearchMediaResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<SearchMediaResponse> vrSearchGetWithHttpInfo(String q, String type, String stereoscopicType, Integer size, Integer pageNum) throws ApiException {
-        com.squareup.okhttp.Call call = vrSearchGetValidateBeforeCall(q, type, stereoscopicType, size, pageNum, null, null);
+    public ApiResponse<SearchMediaResponse> searchWithHttpInfo(String q, String type, String stereoscopicType, Integer size, Integer pageNum) throws ApiException {
+        com.squareup.okhttp.Call call = searchValidateBeforeCall(q, type, stereoscopicType, size, pageNum, null, null);
         Type localVarReturnType = new TypeToken<SearchMediaResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -303,7 +428,7 @@ public class MediaApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call vrSearchGetAsync(String q, String type, String stereoscopicType, Integer size, Integer pageNum, final ApiCallback<SearchMediaResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchAsync(String q, String type, String stereoscopicType, Integer size, Integer pageNum, final ApiCallback<SearchMediaResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -324,133 +449,8 @@ public class MediaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = vrSearchGetValidateBeforeCall(q, type, stereoscopicType, size, pageNum, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchValidateBeforeCall(q, type, stereoscopicType, size, pageNum, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SearchMediaResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for vrTrendingGet
-     * @param size The number of results per page. (optional)
-     * @param nextPageCursor Pass this cursor ID to get the next page of results. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call vrTrendingGetCall(Integer size, String nextPageCursor, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/vr/trending";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (size != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-        if (nextPageCursor != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("nextPageCursor", nextPageCursor));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "XAppToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call vrTrendingGetValidateBeforeCall(Integer size, String nextPageCursor, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-
-        com.squareup.okhttp.Call call = vrTrendingGetCall(size, nextPageCursor, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Trending Endpoint
-     * The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
-     * @param size The number of results per page. (optional)
-     * @param nextPageCursor Pass this cursor ID to get the next page of results. (optional)
-     * @return TrendingResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public TrendingResponse vrTrendingGet(Integer size, String nextPageCursor) throws ApiException {
-        ApiResponse<TrendingResponse> resp = vrTrendingGetWithHttpInfo(size, nextPageCursor);
-        return resp.getData();
-    }
-
-    /**
-     * Trending Endpoint
-     * The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
-     * @param size The number of results per page. (optional)
-     * @param nextPageCursor Pass this cursor ID to get the next page of results. (optional)
-     * @return ApiResponse&lt;TrendingResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<TrendingResponse> vrTrendingGetWithHttpInfo(Integer size, String nextPageCursor) throws ApiException {
-        com.squareup.okhttp.Call call = vrTrendingGetValidateBeforeCall(size, nextPageCursor, null, null);
-        Type localVarReturnType = new TypeToken<TrendingResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Trending Endpoint (asynchronously)
-     * The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
-     * @param size The number of results per page. (optional)
-     * @param nextPageCursor Pass this cursor ID to get the next page of results. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call vrTrendingGetAsync(Integer size, String nextPageCursor, final ApiCallback<TrendingResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = vrTrendingGetValidateBeforeCall(size, nextPageCursor, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TrendingResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

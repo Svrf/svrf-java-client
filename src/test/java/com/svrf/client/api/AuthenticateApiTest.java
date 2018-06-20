@@ -44,9 +44,9 @@ public class AuthenticateApiTest {
      *          if the Api call fails
      */
     @Test
-    public void appAuthenticatePostTest() throws ApiException {
+    public void authenticateTest() throws ApiException {
         Body body = null;
-        AuthResponse response = api.appAuthenticatePost(body);
+        AuthResponse response = api.authenticate(body);
 
         // TODO: test validations
     }

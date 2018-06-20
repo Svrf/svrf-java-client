@@ -58,14 +58,14 @@ public class AuthenticateApi {
     }
 
     /**
-     * Build call for appAuthenticatePost
+     * Build call for authenticate
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call appAuthenticatePostCall(Body body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call authenticateCall(Body body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -107,15 +107,15 @@ public class AuthenticateApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call appAuthenticatePostValidateBeforeCall(Body body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call authenticateValidateBeforeCall(Body body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling appAuthenticatePost(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling authenticate(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = appAuthenticatePostCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = authenticateCall(body, progressListener, progressRequestListener);
         return call;
 
     }
@@ -127,8 +127,8 @@ public class AuthenticateApi {
      * @return AuthResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AuthResponse appAuthenticatePost(Body body) throws ApiException {
-        ApiResponse<AuthResponse> resp = appAuthenticatePostWithHttpInfo(body);
+    public AuthResponse authenticate(Body body) throws ApiException {
+        ApiResponse<AuthResponse> resp = authenticateWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -139,8 +139,8 @@ public class AuthenticateApi {
      * @return ApiResponse&lt;AuthResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AuthResponse> appAuthenticatePostWithHttpInfo(Body body) throws ApiException {
-        com.squareup.okhttp.Call call = appAuthenticatePostValidateBeforeCall(body, null, null);
+    public ApiResponse<AuthResponse> authenticateWithHttpInfo(Body body) throws ApiException {
+        com.squareup.okhttp.Call call = authenticateValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<AuthResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -153,7 +153,7 @@ public class AuthenticateApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call appAuthenticatePostAsync(Body body, final ApiCallback<AuthResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call authenticateAsync(Body body, final ApiCallback<AuthResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -174,7 +174,7 @@ public class AuthenticateApi {
             };
         }
 
-        com.squareup.okhttp.Call call = appAuthenticatePostValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = authenticateValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AuthResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

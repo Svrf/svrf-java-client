@@ -4,12 +4,12 @@ All URIs are relative to *https://api.svrf.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**appAuthenticatePost**](AuthenticateApi.md#appAuthenticatePost) | **POST** /app/authenticate | Authenticate application
+[**authenticate**](AuthenticateApi.md#authenticate) | **POST** /app/authenticate | Authenticate application
 
 
-<a name="appAuthenticatePost"></a>
-# **appAuthenticatePost**
-> AuthResponse appAuthenticatePost(body)
+<a name="authenticate"></a>
+# **authenticate**
+> AuthResponse authenticate(body)
 
 Authenticate application
 
@@ -25,10 +25,10 @@ Authenticate an application&#39;s SVRF API Key to retrieve an access token to th
 AuthenticateApi apiInstance = new AuthenticateApi();
 Body body = new Body(); // Body | 
 try {
-    AuthResponse result = apiInstance.appAuthenticatePost(body);
+    AuthResponse result = apiInstance.authenticate(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuthenticateApi#appAuthenticatePost");
+    System.err.println("Exception when calling AuthenticateApi#authenticate");
     e.printStackTrace();
 }
 ```
