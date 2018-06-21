@@ -1,6 +1,6 @@
 lazy val root = (project in file(".")).
   settings(
-    organization := "com.svrf.client",
+    organization := "com.svrf",
     name := "svrf-client",
     version := "1.0.0",
     scalaVersion := "2.11.4",

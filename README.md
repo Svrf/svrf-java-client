@@ -22,7 +22,7 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>com.svrf.client</groupId>
+  <groupId>com.svrf</groupId>
   <artifactId>svrf-client</artifactId>
   <version>1.0.0</version>
   <scope>compile</scope>
@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.svrf.client:svrf-client:1.0.0"
+compile "com.svrf:svrf-client:1.0.0"
 ```
 
 ### Others

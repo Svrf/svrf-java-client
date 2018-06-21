@@ -1,7 +1,7 @@
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 
-group = 'com.svrf.client'
+group = 'com.svrf'
 version = '1.0.0'
 
 buildscript {
