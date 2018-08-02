@@ -14,80 +14,62 @@
 package com.svrf.client.model;
 
 import java.util.Objects;
+import io.swagger.annotations.ApiModel;
+import com.google.gson.annotations.SerializedName;
+
+import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
- * SuccessResponse
+ * The type of the Media. This should influence the media controls displayed to the user.
  */
+@JsonAdapter(MediaType.Adapter.class)
+public enum MediaType {
+  
+  PHOTO("photo"),
+  
+  VIDEO("video"),
+  
+  _3D("3d");
 
-public class SuccessResponse {
-  @SerializedName("success")
-  private Boolean success = null;
+  private String value;
 
-  public SuccessResponse success(Boolean success) {
-    this.success = success;
-    return this;
+  MediaType(String value) {
+    this.value = value;
   }
 
-   /**
-   * If the request was successful
-   * @return success
-  **/
-  @ApiModelProperty(example = "true", value = "If the request was successful")
-  public Boolean isSuccess() {
-    return success;
+  public String getValue() {
+    return value;
   }
-
-  public void setSuccess(Boolean success) {
-    this.success = success;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    SuccessResponse successResponse = (SuccessResponse) o;
-    return Objects.equals(this.success, successResponse.success);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(success);
-  }
-
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SuccessResponse {\n");
-    
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return String.valueOf(value);
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+  public static MediaType fromValue(String text) {
+    for (MediaType b : MediaType.values()) {
+      if (String.valueOf(b.value).equals(text)) {
+        return b;
+      }
     }
-    return o.toString().replace("\n", "\n    ");
+    return null;
   }
 
+  public static class Adapter extends TypeAdapter<MediaType> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final MediaType enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
+    }
+
+    @Override
+    public MediaType read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return MediaType.fromValue(String.valueOf(value));
+    }
+  }
 }
 
