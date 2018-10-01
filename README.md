@@ -24,7 +24,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.svrf</groupId>
   <artifactId>svrf-client</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.svrf:svrf-client:1.1.0"
+compile "com.svrf:svrf-client:1.2.0"
 ```
 
 ### Others
@@ -47,7 +47,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/svrf-client-1.1.0.jar`
+* `target/svrf-client-1.2.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

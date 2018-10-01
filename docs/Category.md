@@ -4,7 +4,7 @@
 ## Enum
 
 
-* `MASK` (value: `"Face Mask"`)
+* `FILTERS` (value: `"Face Filters"`)
 
 
 

@@ -90,10 +90,10 @@ XAppToken.setApiKey("YOUR API KEY");
 //XAppToken.setApiKeyPrefix("Token");
 
 MediaApi apiInstance = new MediaApi();
-String type = "type_example"; // String | The type of Media to be returned.
+List<MediaType> type = Arrays.asList(new MediaType()); // List<MediaType> | The type(s) of Media to be returned (comma separated).
 String stereoscopicType = "stereoscopicType_example"; // String | Search only for Media with a particular stereoscopic type.
 String category = "category_example"; // String | Search only for Media with a particular category.
-Integer size = 56; // Integer | The number of results per page.
+Integer size = 10; // Integer | The number of results per page.
 String nextPageCursor = "nextPageCursor_example"; // String | Pass this cursor ID to get the next page of results.
 try {
     TrendingResponse result = apiInstance.getTrending(type, stereoscopicType, category, size, nextPageCursor);
@@ -108,10 +108,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**| The type of Media to be returned. | [optional]
+ **type** | [**List&lt;MediaType&gt;**](MediaType.md)| The type(s) of Media to be returned (comma separated). | [optional]
  **stereoscopicType** | **String**| Search only for Media with a particular stereoscopic type. | [optional]
  **category** | **String**| Search only for Media with a particular category. | [optional]
- **size** | **Integer**| The number of results per page. | [optional]
+ **size** | **Integer**| The number of results per page. | [optional] [default to 10]
  **nextPageCursor** | **String**| Pass this cursor ID to get the next page of results. | [optional]
 
 ### Return type
@@ -154,10 +154,10 @@ XAppToken.setApiKey("YOUR API KEY");
 
 MediaApi apiInstance = new MediaApi();
 String q = "q_example"; // String | Url-encoded search query.
-String type = "type_example"; // String | The type of Media to be returned.
+List<MediaType> type = Arrays.asList(new MediaType()); // List<MediaType> | The type(s) of Media to be returned (comma separated).
 String stereoscopicType = "stereoscopicType_example"; // String | Search only for Media with a particular stereoscopic type.
 String category = "category_example"; // String | Search only for Media with a particular category.
-Integer size = 56; // Integer | The number of results to return per-page, from 1 to 100 default: 10.
+Integer size = 10; // Integer | The number of results to return per-page, from 1 to 100.
 Integer pageNum = 56; // Integer | Pagination control to fetch the next page of results, if applicable.
 try {
     SearchMediaResponse result = apiInstance.search(q, type, stereoscopicType, category, size, pageNum);
@@ -173,10 +173,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**| Url-encoded search query. |
- **type** | **String**| The type of Media to be returned. | [optional]
+ **type** | [**List&lt;MediaType&gt;**](MediaType.md)| The type(s) of Media to be returned (comma separated). | [optional]
  **stereoscopicType** | **String**| Search only for Media with a particular stereoscopic type. | [optional]
  **category** | **String**| Search only for Media with a particular category. | [optional]
- **size** | **Integer**| The number of results to return per-page, from 1 to 100 default: 10. | [optional]
+ **size** | **Integer**| The number of results to return per-page, from 1 to 100. | [optional] [default to 10]
  **pageNum** | **Integer**| Pagination control to fetch the next page of results, if applicable. | [optional]
 
 ### Return type
