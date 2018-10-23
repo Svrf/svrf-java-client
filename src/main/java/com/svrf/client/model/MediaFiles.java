@@ -25,6 +25,9 @@ import com.svrf.client.model.MediaVideos;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Various sizes of images and resolutions for the Media. They will never be larger than the Media source&#39;s original resolution.
@@ -34,6 +37,12 @@ import java.io.IOException;
 public class MediaFiles {
   @SerializedName("glb")
   private String glb = null;
+
+  @SerializedName("glb-draco")
+  private String glbDraco = null;
+
+  @SerializedName("gltf")
+  private Map<String, String> gltf = null;
 
   @SerializedName("images")
   private MediaImages images = null;
@@ -50,16 +59,60 @@ public class MediaFiles {
   }
 
    /**
-   * This is the binary glTF format that should be used by clients if the Media is a 3D object.
+   * This is the binary glTF format that should be used by clients if the Media is a 3D object. This is the preferred format to use on end-user devices.
    * @return glb
   **/
-  @ApiModelProperty(value = "This is the binary glTF format that should be used by clients if the Media is a 3D object.")
+  @ApiModelProperty(value = "This is the binary glTF format that should be used by clients if the Media is a 3D object. This is the preferred format to use on end-user devices.")
   public String getGlb() {
     return glb;
   }
 
   public void setGlb(String glb) {
     this.glb = glb;
+  }
+
+  public MediaFiles glbDraco(String glbDraco) {
+    this.glbDraco = glbDraco;
+    return this;
+  }
+
+   /**
+   * This is the binary glTF format, with additional DRACO compression, that should be used by clients if the Media is a 3D object. Your renderer must support the KHR_draco_mesh_compression extension to use this model.
+   * @return glbDraco
+  **/
+  @ApiModelProperty(value = "This is the binary glTF format, with additional DRACO compression, that should be used by clients if the Media is a 3D object. Your renderer must support the KHR_draco_mesh_compression extension to use this model.")
+  public String getGlbDraco() {
+    return glbDraco;
+  }
+
+  public void setGlbDraco(String glbDraco) {
+    this.glbDraco = glbDraco;
+  }
+
+  public MediaFiles gltf(Map<String, String> gltf) {
+    this.gltf = gltf;
+    return this;
+  }
+
+  public MediaFiles putGltfItem(String key, String gltfItem) {
+    if (this.gltf == null) {
+      this.gltf = new HashMap<String, String>();
+    }
+    this.gltf.put(key, gltfItem);
+    return this;
+  }
+
+   /**
+   * A map of file names to urls where those files are hosted. The file names are relative and their name heirarchy should be respected when saving them locally.
+   * @return gltf
+  **/
+  @ApiModelProperty(value = "A map of file names to urls where those files are hosted. The file names are relative and their name heirarchy should be respected when saving them locally.")
+  public Map<String, String> getGltf() {
+    return gltf;
+  }
+
+  public void setGltf(Map<String, String> gltf) {
+    this.gltf = gltf;
   }
 
   public MediaFiles images(MediaImages images) {
@@ -127,6 +180,8 @@ public class MediaFiles {
     }
     MediaFiles mediaFiles = (MediaFiles) o;
     return Objects.equals(this.glb, mediaFiles.glb) &&
+        Objects.equals(this.glbDraco, mediaFiles.glbDraco) &&
+        Objects.equals(this.gltf, mediaFiles.gltf) &&
         Objects.equals(this.images, mediaFiles.images) &&
         Objects.equals(this.stereo, mediaFiles.stereo) &&
         Objects.equals(this.videos, mediaFiles.videos);
@@ -134,7 +189,7 @@ public class MediaFiles {
 
   @Override
   public int hashCode() {
-    return Objects.hash(glb, images, stereo, videos);
+    return Objects.hash(glb, glbDraco, gltf, images, stereo, videos);
   }
 
 
@@ -144,6 +199,8 @@ public class MediaFiles {
     sb.append("class MediaFiles {\n");
     
     sb.append("    glb: ").append(toIndentedString(glb)).append("\n");
+    sb.append("    glbDraco: ").append(toIndentedString(glbDraco)).append("\n");
+    sb.append("    gltf: ").append(toIndentedString(gltf)).append("\n");
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
     sb.append("    stereo: ").append(toIndentedString(stereo)).append("\n");
     sb.append("    videos: ").append(toIndentedString(videos)).append("\n");

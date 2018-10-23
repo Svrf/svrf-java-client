@@ -44,6 +44,9 @@ public class MediaImages {
   @SerializedName("4096")
   private String _4096 = null;
 
+  @SerializedName("8192")
+  private String _8192 = null;
+
   @SerializedName("1080Watermarked")
   private String _1080Watermarked = null;
 
@@ -147,6 +150,24 @@ public class MediaImages {
 
   public void set4096(String _4096) {
     this._4096 = _4096;
+  }
+
+  public MediaImages _8192(String _8192) {
+    this._8192 = _8192;
+    return this;
+  }
+
+   /**
+   * The image at a reasonably large resolution that can be used for a better desktop experience.
+   * @return _8192
+  **/
+  @ApiModelProperty(value = "The image at a reasonably large resolution that can be used for a better desktop experience.")
+  public String get8192() {
+    return _8192;
+  }
+
+  public void set8192(String _8192) {
+    this._8192 = _8192;
   }
 
   public MediaImages _1080Watermarked(String _1080Watermarked) {
@@ -254,6 +275,7 @@ public class MediaImages {
         Objects.equals(this._720, mediaImages._720) &&
         Objects.equals(this._1080, mediaImages._1080) &&
         Objects.equals(this._4096, mediaImages._4096) &&
+        Objects.equals(this._8192, mediaImages._8192) &&
         Objects.equals(this._1080Watermarked, mediaImages._1080Watermarked) &&
         Objects.equals(this._720x405, mediaImages._720x405) &&
         Objects.equals(this._720x540, mediaImages._720x540) &&
@@ -263,7 +285,7 @@ public class MediaImages {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_136, _540, _720, _1080, _4096, _1080Watermarked, _720x405, _720x540, _720x720, max);
+    return Objects.hash(_136, _540, _720, _1080, _4096, _8192, _1080Watermarked, _720x405, _720x540, _720x720, max);
   }
 
 
@@ -277,6 +299,7 @@ public class MediaImages {
     sb.append("    _720: ").append(toIndentedString(_720)).append("\n");
     sb.append("    _1080: ").append(toIndentedString(_1080)).append("\n");
     sb.append("    _4096: ").append(toIndentedString(_4096)).append("\n");
+    sb.append("    _8192: ").append(toIndentedString(_8192)).append("\n");
     sb.append("    _1080Watermarked: ").append(toIndentedString(_1080Watermarked)).append("\n");
     sb.append("    _720x405: ").append(toIndentedString(_720x405)).append("\n");
     sb.append("    _720x540: ").append(toIndentedString(_720x540)).append("\n");
