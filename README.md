@@ -24,7 +24,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.svrf</groupId>
   <artifactId>svrf-client</artifactId>
-  <version>1.3.0</version>
+  <version>1.4.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.svrf:svrf-client:1.3.0"
+compile "com.svrf:svrf-client:1.4.0"
 ```
 
 ### Others
@@ -47,7 +47,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/svrf-client-1.3.0.jar`
+* `target/svrf-client-1.4.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -106,6 +106,7 @@ Class | Method | HTTP request | Description
  - [MediaStereo](docs/MediaStereo.md)
  - [MediaType](docs/MediaType.md)
  - [MediaVideos](docs/MediaVideos.md)
+ - [PaginationResponse](docs/PaginationResponse.md)
  - [StereoscopicType](docs/StereoscopicType.md)
  - [SuccessResponse](docs/SuccessResponse.md)
  - [AuthResponse](docs/AuthResponse.md)

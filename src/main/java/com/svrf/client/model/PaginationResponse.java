@@ -18,29 +18,22 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.svrf.client.model.Media;
-import com.svrf.client.model.PaginationResponse;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * TrendingResponse
+ * PaginationResponse
  */
 
-public class TrendingResponse {
+public class PaginationResponse {
   @SerializedName("nextPageNum")
   private Integer nextPageNum = null;
 
   @SerializedName("pageNum")
   private Integer pageNum = null;
 
-  @SerializedName("media")
-  private List<Media> media = null;
-
-  public TrendingResponse nextPageNum(Integer nextPageNum) {
+  public PaginationResponse nextPageNum(Integer nextPageNum) {
     this.nextPageNum = nextPageNum;
     return this;
   }
@@ -58,7 +51,7 @@ public class TrendingResponse {
     this.nextPageNum = nextPageNum;
   }
 
-  public TrendingResponse pageNum(Integer pageNum) {
+  public PaginationResponse pageNum(Integer pageNum) {
     this.pageNum = pageNum;
     return this;
   }
@@ -76,32 +69,6 @@ public class TrendingResponse {
     this.pageNum = pageNum;
   }
 
-  public TrendingResponse media(List<Media> media) {
-    this.media = media;
-    return this;
-  }
-
-  public TrendingResponse addMediaItem(Media mediaItem) {
-    if (this.media == null) {
-      this.media = new ArrayList<Media>();
-    }
-    this.media.add(mediaItem);
-    return this;
-  }
-
-   /**
-   * Trending media
-   * @return media
-  **/
-  @ApiModelProperty(value = "Trending media")
-  public List<Media> getMedia() {
-    return media;
-  }
-
-  public void setMedia(List<Media> media) {
-    this.media = media;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -111,26 +78,24 @@ public class TrendingResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TrendingResponse trendingResponse = (TrendingResponse) o;
-    return Objects.equals(this.nextPageNum, trendingResponse.nextPageNum) &&
-        Objects.equals(this.pageNum, trendingResponse.pageNum) &&
-        Objects.equals(this.media, trendingResponse.media);
+    PaginationResponse paginationResponse = (PaginationResponse) o;
+    return Objects.equals(this.nextPageNum, paginationResponse.nextPageNum) &&
+        Objects.equals(this.pageNum, paginationResponse.pageNum);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nextPageNum, pageNum, media);
+    return Objects.hash(nextPageNum, pageNum);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TrendingResponse {\n");
+    sb.append("class PaginationResponse {\n");
     
     sb.append("    nextPageNum: ").append(toIndentedString(nextPageNum)).append("\n");
     sb.append("    pageNum: ").append(toIndentedString(pageNum)).append("\n");
-    sb.append("    media: ").append(toIndentedString(media)).append("\n");
     sb.append("}");
     return sb.toString();
   }

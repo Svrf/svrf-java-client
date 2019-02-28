@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 <a name="getTrending"></a>
 # **getTrending**
-> TrendingResponse getTrending(type, stereoscopicType, category, size, nextPageCursor)
+> TrendingResponse getTrending(type, stereoscopicType, category, size, minimumWidth, pageNum)
 
 Trending Endpoint
 
@@ -94,9 +94,10 @@ List<MediaType> type = Arrays.asList(new MediaType()); // List<MediaType> | The 
 String stereoscopicType = "stereoscopicType_example"; // String | Search only for Media with a particular stereoscopic type.
 String category = "category_example"; // String | Search only for Media with a particular category.
 Integer size = 10; // Integer | The number of results per page.
-String nextPageCursor = "nextPageCursor_example"; // String | Pass this cursor ID to get the next page of results.
+Integer minimumWidth = 56; // Integer | The minimum width for video and photo Media, in pixels.
+Integer pageNum = 56; // Integer | Pagination control to fetch the next page of results, if applicable.
 try {
-    TrendingResponse result = apiInstance.getTrending(type, stereoscopicType, category, size, nextPageCursor);
+    TrendingResponse result = apiInstance.getTrending(type, stereoscopicType, category, size, minimumWidth, pageNum);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MediaApi#getTrending");
@@ -109,10 +110,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | [**List&lt;MediaType&gt;**](MediaType.md)| The type(s) of Media to be returned (comma separated). | [optional]
- **stereoscopicType** | **String**| Search only for Media with a particular stereoscopic type. | [optional]
- **category** | **String**| Search only for Media with a particular category. | [optional]
+ **stereoscopicType** | **String**| Search only for Media with a particular stereoscopic type. | [optional] [enum: none, top-bottom, left-right]
+ **category** | **String**| Search only for Media with a particular category. | [optional] [enum: Face Filters]
  **size** | **Integer**| The number of results per page. | [optional] [default to 10]
- **nextPageCursor** | **String**| Pass this cursor ID to get the next page of results. | [optional]
+ **minimumWidth** | **Integer**| The minimum width for video and photo Media, in pixels. | [optional]
+ **pageNum** | **Integer**| Pagination control to fetch the next page of results, if applicable. | [optional]
 
 ### Return type
 
@@ -129,7 +131,7 @@ Name | Type | Description  | Notes
 
 <a name="search"></a>
 # **search**
-> SearchMediaResponse search(q, type, stereoscopicType, category, size, pageNum)
+> SearchMediaResponse search(q, type, stereoscopicType, category, size, minimumWidth, pageNum)
 
 Search Endpoint
 
@@ -158,9 +160,10 @@ List<MediaType> type = Arrays.asList(new MediaType()); // List<MediaType> | The 
 String stereoscopicType = "stereoscopicType_example"; // String | Search only for Media with a particular stereoscopic type.
 String category = "category_example"; // String | Search only for Media with a particular category.
 Integer size = 10; // Integer | The number of results to return per-page, from 1 to 100.
+Integer minimumWidth = 56; // Integer | The minimum width for video and photo Media, in pixels.
 Integer pageNum = 56; // Integer | Pagination control to fetch the next page of results, if applicable.
 try {
-    SearchMediaResponse result = apiInstance.search(q, type, stereoscopicType, category, size, pageNum);
+    SearchMediaResponse result = apiInstance.search(q, type, stereoscopicType, category, size, minimumWidth, pageNum);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MediaApi#search");
@@ -174,9 +177,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**| Url-encoded search query. |
  **type** | [**List&lt;MediaType&gt;**](MediaType.md)| The type(s) of Media to be returned (comma separated). | [optional]
- **stereoscopicType** | **String**| Search only for Media with a particular stereoscopic type. | [optional]
- **category** | **String**| Search only for Media with a particular category. | [optional]
+ **stereoscopicType** | **String**| Search only for Media with a particular stereoscopic type. | [optional] [enum: none, top-bottom, left-right]
+ **category** | **String**| Search only for Media with a particular category. | [optional] [enum: Face Filters]
  **size** | **Integer**| The number of results to return per-page, from 1 to 100. | [optional] [default to 10]
+ **minimumWidth** | **Integer**| The minimum width for video and photo Media, in pixels. | [optional]
  **pageNum** | **Integer**| Pagination control to fetch the next page of results, if applicable. | [optional]
 
 ### Return type
