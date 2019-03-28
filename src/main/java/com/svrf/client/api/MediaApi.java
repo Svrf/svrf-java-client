@@ -189,12 +189,15 @@ public class MediaApi {
      * @param size The number of results per page. (optional, default to 10)
      * @param minimumWidth The minimum width for video and photo Media, in pixels. (optional)
      * @param pageNum Pagination control to fetch the next page of results, if applicable. (optional)
+     * @param isFaceFilter Search only for Face Filters. (optional)
+     * @param hasBlendShapes Search only for Media that has blend shapes. (optional)
+     * @param requiresBlendShapes Search only for Media that requires blend shapes. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTrendingCall(List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTrendingCall(List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, Boolean isFaceFilter, Boolean hasBlendShapes, Boolean requiresBlendShapes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -214,6 +217,12 @@ public class MediaApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("minimumWidth", minimumWidth));
         if (pageNum != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("pageNum", pageNum));
+        if (isFaceFilter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("isFaceFilter", isFaceFilter));
+        if (hasBlendShapes != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("hasBlendShapes", hasBlendShapes));
+        if (requiresBlendShapes != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("requiresBlendShapes", requiresBlendShapes));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -248,10 +257,10 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTrendingValidateBeforeCall(List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTrendingValidateBeforeCall(List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, Boolean isFaceFilter, Boolean hasBlendShapes, Boolean requiresBlendShapes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getTrendingCall(type, stereoscopicType, category, size, minimumWidth, pageNum, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTrendingCall(type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes, progressListener, progressRequestListener);
         return call;
 
     }
@@ -265,11 +274,14 @@ public class MediaApi {
      * @param size The number of results per page. (optional, default to 10)
      * @param minimumWidth The minimum width for video and photo Media, in pixels. (optional)
      * @param pageNum Pagination control to fetch the next page of results, if applicable. (optional)
+     * @param isFaceFilter Search only for Face Filters. (optional)
+     * @param hasBlendShapes Search only for Media that has blend shapes. (optional)
+     * @param requiresBlendShapes Search only for Media that requires blend shapes. (optional)
      * @return TrendingResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TrendingResponse getTrending(List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum) throws ApiException {
-        ApiResponse<TrendingResponse> resp = getTrendingWithHttpInfo(type, stereoscopicType, category, size, minimumWidth, pageNum);
+    public TrendingResponse getTrending(List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, Boolean isFaceFilter, Boolean hasBlendShapes, Boolean requiresBlendShapes) throws ApiException {
+        ApiResponse<TrendingResponse> resp = getTrendingWithHttpInfo(type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
         return resp.getData();
     }
 
@@ -282,11 +294,14 @@ public class MediaApi {
      * @param size The number of results per page. (optional, default to 10)
      * @param minimumWidth The minimum width for video and photo Media, in pixels. (optional)
      * @param pageNum Pagination control to fetch the next page of results, if applicable. (optional)
+     * @param isFaceFilter Search only for Face Filters. (optional)
+     * @param hasBlendShapes Search only for Media that has blend shapes. (optional)
+     * @param requiresBlendShapes Search only for Media that requires blend shapes. (optional)
      * @return ApiResponse&lt;TrendingResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<TrendingResponse> getTrendingWithHttpInfo(List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum) throws ApiException {
-        com.squareup.okhttp.Call call = getTrendingValidateBeforeCall(type, stereoscopicType, category, size, minimumWidth, pageNum, null, null);
+    public ApiResponse<TrendingResponse> getTrendingWithHttpInfo(List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, Boolean isFaceFilter, Boolean hasBlendShapes, Boolean requiresBlendShapes) throws ApiException {
+        com.squareup.okhttp.Call call = getTrendingValidateBeforeCall(type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes, null, null);
         Type localVarReturnType = new TypeToken<TrendingResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -300,11 +315,14 @@ public class MediaApi {
      * @param size The number of results per page. (optional, default to 10)
      * @param minimumWidth The minimum width for video and photo Media, in pixels. (optional)
      * @param pageNum Pagination control to fetch the next page of results, if applicable. (optional)
+     * @param isFaceFilter Search only for Face Filters. (optional)
+     * @param hasBlendShapes Search only for Media that has blend shapes. (optional)
+     * @param requiresBlendShapes Search only for Media that requires blend shapes. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTrendingAsync(List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, final ApiCallback<TrendingResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTrendingAsync(List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, Boolean isFaceFilter, Boolean hasBlendShapes, Boolean requiresBlendShapes, final ApiCallback<TrendingResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -325,7 +343,7 @@ public class MediaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTrendingValidateBeforeCall(type, stereoscopicType, category, size, minimumWidth, pageNum, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTrendingValidateBeforeCall(type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TrendingResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -339,12 +357,15 @@ public class MediaApi {
      * @param size The number of results to return per-page, from 1 to 100. (optional, default to 10)
      * @param minimumWidth The minimum width for video and photo Media, in pixels. (optional)
      * @param pageNum Pagination control to fetch the next page of results, if applicable. (optional)
+     * @param isFaceFilter Search only for Face Filters. (optional)
+     * @param hasBlendShapes Search only for Media that has blend shapes. (optional)
+     * @param requiresBlendShapes Search only for Media that requires blend shapes. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call searchCall(String q, List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call searchCall(String q, List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, Boolean isFaceFilter, Boolean hasBlendShapes, Boolean requiresBlendShapes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -366,6 +387,12 @@ public class MediaApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("minimumWidth", minimumWidth));
         if (pageNum != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("pageNum", pageNum));
+        if (isFaceFilter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("isFaceFilter", isFaceFilter));
+        if (hasBlendShapes != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("hasBlendShapes", hasBlendShapes));
+        if (requiresBlendShapes != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("requiresBlendShapes", requiresBlendShapes));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -400,7 +427,7 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchValidateBeforeCall(String q, List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchValidateBeforeCall(String q, List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, Boolean isFaceFilter, Boolean hasBlendShapes, Boolean requiresBlendShapes, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'q' is set
         if (q == null) {
@@ -408,7 +435,7 @@ public class MediaApi {
         }
         
 
-        com.squareup.okhttp.Call call = searchCall(q, type, stereoscopicType, category, size, minimumWidth, pageNum, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchCall(q, type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes, progressListener, progressRequestListener);
         return call;
 
     }
@@ -423,11 +450,14 @@ public class MediaApi {
      * @param size The number of results to return per-page, from 1 to 100. (optional, default to 10)
      * @param minimumWidth The minimum width for video and photo Media, in pixels. (optional)
      * @param pageNum Pagination control to fetch the next page of results, if applicable. (optional)
+     * @param isFaceFilter Search only for Face Filters. (optional)
+     * @param hasBlendShapes Search only for Media that has blend shapes. (optional)
+     * @param requiresBlendShapes Search only for Media that requires blend shapes. (optional)
      * @return SearchMediaResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SearchMediaResponse search(String q, List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum) throws ApiException {
-        ApiResponse<SearchMediaResponse> resp = searchWithHttpInfo(q, type, stereoscopicType, category, size, minimumWidth, pageNum);
+    public SearchMediaResponse search(String q, List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, Boolean isFaceFilter, Boolean hasBlendShapes, Boolean requiresBlendShapes) throws ApiException {
+        ApiResponse<SearchMediaResponse> resp = searchWithHttpInfo(q, type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
         return resp.getData();
     }
 
@@ -441,11 +471,14 @@ public class MediaApi {
      * @param size The number of results to return per-page, from 1 to 100. (optional, default to 10)
      * @param minimumWidth The minimum width for video and photo Media, in pixels. (optional)
      * @param pageNum Pagination control to fetch the next page of results, if applicable. (optional)
+     * @param isFaceFilter Search only for Face Filters. (optional)
+     * @param hasBlendShapes Search only for Media that has blend shapes. (optional)
+     * @param requiresBlendShapes Search only for Media that requires blend shapes. (optional)
      * @return ApiResponse&lt;SearchMediaResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<SearchMediaResponse> searchWithHttpInfo(String q, List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum) throws ApiException {
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(q, type, stereoscopicType, category, size, minimumWidth, pageNum, null, null);
+    public ApiResponse<SearchMediaResponse> searchWithHttpInfo(String q, List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, Boolean isFaceFilter, Boolean hasBlendShapes, Boolean requiresBlendShapes) throws ApiException {
+        com.squareup.okhttp.Call call = searchValidateBeforeCall(q, type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes, null, null);
         Type localVarReturnType = new TypeToken<SearchMediaResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -460,11 +493,14 @@ public class MediaApi {
      * @param size The number of results to return per-page, from 1 to 100. (optional, default to 10)
      * @param minimumWidth The minimum width for video and photo Media, in pixels. (optional)
      * @param pageNum Pagination control to fetch the next page of results, if applicable. (optional)
+     * @param isFaceFilter Search only for Face Filters. (optional)
+     * @param hasBlendShapes Search only for Media that has blend shapes. (optional)
+     * @param requiresBlendShapes Search only for Media that requires blend shapes. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call searchAsync(String q, List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, final ApiCallback<SearchMediaResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchAsync(String q, List<MediaType> type, String stereoscopicType, String category, Integer size, Integer minimumWidth, Integer pageNum, Boolean isFaceFilter, Boolean hasBlendShapes, Boolean requiresBlendShapes, final ApiCallback<SearchMediaResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -485,7 +521,7 @@ public class MediaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(q, type, stereoscopicType, category, size, minimumWidth, pageNum, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchValidateBeforeCall(q, type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SearchMediaResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

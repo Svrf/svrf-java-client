@@ -68,7 +68,10 @@ public class MediaApiTest {
         Integer size = null;
         Integer minimumWidth = null;
         Integer pageNum = null;
-        TrendingResponse response = api.getTrending(type, stereoscopicType, category, size, minimumWidth, pageNum);
+        Boolean isFaceFilter = null;
+        Boolean hasBlendShapes = null;
+        Boolean requiresBlendShapes = null;
+        TrendingResponse response = api.getTrending(type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
 
         // TODO: test validations
     }
@@ -90,7 +93,10 @@ public class MediaApiTest {
         Integer size = null;
         Integer minimumWidth = null;
         Integer pageNum = null;
-        SearchMediaResponse response = api.search(q, type, stereoscopicType, category, size, minimumWidth, pageNum);
+        Boolean isFaceFilter = null;
+        Boolean hasBlendShapes = null;
+        Boolean requiresBlendShapes = null;
+        SearchMediaResponse response = api.search(q, type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
 
         // TODO: test validations
     }

@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 <a name="getTrending"></a>
 # **getTrending**
-> TrendingResponse getTrending(type, stereoscopicType, category, size, minimumWidth, pageNum)
+> TrendingResponse getTrending(type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes)
 
 Trending Endpoint
 
@@ -96,8 +96,11 @@ String category = "category_example"; // String | Search only for Media with a p
 Integer size = 10; // Integer | The number of results per page.
 Integer minimumWidth = 56; // Integer | The minimum width for video and photo Media, in pixels.
 Integer pageNum = 56; // Integer | Pagination control to fetch the next page of results, if applicable.
+Boolean isFaceFilter = true; // Boolean | Search only for Face Filters.
+Boolean hasBlendShapes = true; // Boolean | Search only for Media that has blend shapes.
+Boolean requiresBlendShapes = true; // Boolean | Search only for Media that requires blend shapes.
 try {
-    TrendingResponse result = apiInstance.getTrending(type, stereoscopicType, category, size, minimumWidth, pageNum);
+    TrendingResponse result = apiInstance.getTrending(type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MediaApi#getTrending");
@@ -115,6 +118,9 @@ Name | Type | Description  | Notes
  **size** | **Integer**| The number of results per page. | [optional] [default to 10]
  **minimumWidth** | **Integer**| The minimum width for video and photo Media, in pixels. | [optional]
  **pageNum** | **Integer**| Pagination control to fetch the next page of results, if applicable. | [optional]
+ **isFaceFilter** | **Boolean**| Search only for Face Filters. | [optional]
+ **hasBlendShapes** | **Boolean**| Search only for Media that has blend shapes. | [optional]
+ **requiresBlendShapes** | **Boolean**| Search only for Media that requires blend shapes. | [optional]
 
 ### Return type
 
@@ -131,7 +137,7 @@ Name | Type | Description  | Notes
 
 <a name="search"></a>
 # **search**
-> SearchMediaResponse search(q, type, stereoscopicType, category, size, minimumWidth, pageNum)
+> SearchMediaResponse search(q, type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes)
 
 Search Endpoint
 
@@ -162,8 +168,11 @@ String category = "category_example"; // String | Search only for Media with a p
 Integer size = 10; // Integer | The number of results to return per-page, from 1 to 100.
 Integer minimumWidth = 56; // Integer | The minimum width for video and photo Media, in pixels.
 Integer pageNum = 56; // Integer | Pagination control to fetch the next page of results, if applicable.
+Boolean isFaceFilter = true; // Boolean | Search only for Face Filters.
+Boolean hasBlendShapes = true; // Boolean | Search only for Media that has blend shapes.
+Boolean requiresBlendShapes = true; // Boolean | Search only for Media that requires blend shapes.
 try {
-    SearchMediaResponse result = apiInstance.search(q, type, stereoscopicType, category, size, minimumWidth, pageNum);
+    SearchMediaResponse result = apiInstance.search(q, type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MediaApi#search");
@@ -182,6 +191,9 @@ Name | Type | Description  | Notes
  **size** | **Integer**| The number of results to return per-page, from 1 to 100. | [optional] [default to 10]
  **minimumWidth** | **Integer**| The minimum width for video and photo Media, in pixels. | [optional]
  **pageNum** | **Integer**| Pagination control to fetch the next page of results, if applicable. | [optional]
+ **isFaceFilter** | **Boolean**| Search only for Face Filters. | [optional]
+ **hasBlendShapes** | **Boolean**| Search only for Media that has blend shapes. | [optional]
+ **requiresBlendShapes** | **Boolean**| Search only for Media that requires blend shapes. | [optional]
 
 ### Return type
 

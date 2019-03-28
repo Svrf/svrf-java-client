@@ -31,6 +31,9 @@ import java.util.List;
  */
 
 public class SearchMediaResponse {
+  @SerializedName("success")
+  private Boolean success = null;
+
   @SerializedName("nextPageNum")
   private Integer nextPageNum = null;
 
@@ -45,6 +48,24 @@ public class SearchMediaResponse {
 
   @SerializedName("totalNum")
   private Integer totalNum = null;
+
+  public SearchMediaResponse success(Boolean success) {
+    this.success = success;
+    return this;
+  }
+
+   /**
+   * If the request was successful
+   * @return success
+  **/
+  @ApiModelProperty(example = "true", value = "If the request was successful")
+  public Boolean isSuccess() {
+    return success;
+  }
+
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
 
   public SearchMediaResponse nextPageNum(Integer nextPageNum) {
     this.nextPageNum = nextPageNum;
@@ -154,7 +175,8 @@ public class SearchMediaResponse {
       return false;
     }
     SearchMediaResponse searchMediaResponse = (SearchMediaResponse) o;
-    return Objects.equals(this.nextPageNum, searchMediaResponse.nextPageNum) &&
+    return Objects.equals(this.success, searchMediaResponse.success) &&
+        Objects.equals(this.nextPageNum, searchMediaResponse.nextPageNum) &&
         Objects.equals(this.pageNum, searchMediaResponse.pageNum) &&
         Objects.equals(this.media, searchMediaResponse.media) &&
         Objects.equals(this.tookMs, searchMediaResponse.tookMs) &&
@@ -163,7 +185,7 @@ public class SearchMediaResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(nextPageNum, pageNum, media, tookMs, totalNum);
+    return Objects.hash(success, nextPageNum, pageNum, media, tookMs, totalNum);
   }
 
 
@@ -172,6 +194,7 @@ public class SearchMediaResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchMediaResponse {\n");
     
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    nextPageNum: ").append(toIndentedString(nextPageNum)).append("\n");
     sb.append("    pageNum: ").append(toIndentedString(pageNum)).append("\n");
     sb.append("    media: ").append(toIndentedString(media)).append("\n");

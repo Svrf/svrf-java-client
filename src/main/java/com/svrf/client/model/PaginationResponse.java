@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.svrf.client.model.SuccessResponse;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -27,11 +28,32 @@ import java.io.IOException;
  */
 
 public class PaginationResponse {
+  @SerializedName("success")
+  private Boolean success = null;
+
   @SerializedName("nextPageNum")
   private Integer nextPageNum = null;
 
   @SerializedName("pageNum")
   private Integer pageNum = null;
+
+  public PaginationResponse success(Boolean success) {
+    this.success = success;
+    return this;
+  }
+
+   /**
+   * If the request was successful
+   * @return success
+  **/
+  @ApiModelProperty(example = "true", value = "If the request was successful")
+  public Boolean isSuccess() {
+    return success;
+  }
+
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
 
   public PaginationResponse nextPageNum(Integer nextPageNum) {
     this.nextPageNum = nextPageNum;
@@ -79,13 +101,14 @@ public class PaginationResponse {
       return false;
     }
     PaginationResponse paginationResponse = (PaginationResponse) o;
-    return Objects.equals(this.nextPageNum, paginationResponse.nextPageNum) &&
+    return Objects.equals(this.success, paginationResponse.success) &&
+        Objects.equals(this.nextPageNum, paginationResponse.nextPageNum) &&
         Objects.equals(this.pageNum, paginationResponse.pageNum);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nextPageNum, pageNum);
+    return Objects.hash(success, nextPageNum, pageNum);
   }
 
 
@@ -94,6 +117,7 @@ public class PaginationResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaginationResponse {\n");
     
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    nextPageNum: ").append(toIndentedString(nextPageNum)).append("\n");
     sb.append("    pageNum: ").append(toIndentedString(pageNum)).append("\n");
     sb.append("}");

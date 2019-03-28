@@ -31,6 +31,9 @@ import java.util.List;
  */
 
 public class TrendingResponse {
+  @SerializedName("success")
+  private Boolean success = null;
+
   @SerializedName("nextPageNum")
   private Integer nextPageNum = null;
 
@@ -39,6 +42,24 @@ public class TrendingResponse {
 
   @SerializedName("media")
   private List<Media> media = null;
+
+  public TrendingResponse success(Boolean success) {
+    this.success = success;
+    return this;
+  }
+
+   /**
+   * If the request was successful
+   * @return success
+  **/
+  @ApiModelProperty(example = "true", value = "If the request was successful")
+  public Boolean isSuccess() {
+    return success;
+  }
+
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
 
   public TrendingResponse nextPageNum(Integer nextPageNum) {
     this.nextPageNum = nextPageNum;
@@ -112,14 +133,15 @@ public class TrendingResponse {
       return false;
     }
     TrendingResponse trendingResponse = (TrendingResponse) o;
-    return Objects.equals(this.nextPageNum, trendingResponse.nextPageNum) &&
+    return Objects.equals(this.success, trendingResponse.success) &&
+        Objects.equals(this.nextPageNum, trendingResponse.nextPageNum) &&
         Objects.equals(this.pageNum, trendingResponse.pageNum) &&
         Objects.equals(this.media, trendingResponse.media);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nextPageNum, pageNum, media);
+    return Objects.hash(success, nextPageNum, pageNum, media);
   }
 
 
@@ -128,6 +150,7 @@ public class TrendingResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrendingResponse {\n");
     
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    nextPageNum: ").append(toIndentedString(nextPageNum)).append("\n");
     sb.append("    pageNum: ").append(toIndentedString(pageNum)).append("\n");
     sb.append("    media: ").append(toIndentedString(media)).append("\n");

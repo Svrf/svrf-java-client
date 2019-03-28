@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.svrf.client.model.MediaFiles;
+import com.svrf.client.model.MediaMetadata;
 import com.svrf.client.model.MediaType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -61,6 +62,9 @@ public class Media {
 
   @SerializedName("id")
   private String id = null;
+
+  @SerializedName("metadata")
+  private MediaMetadata metadata = null;
 
   @SerializedName("site")
   private String site = null;
@@ -265,6 +269,24 @@ public class Media {
     this.id = id;
   }
 
+  public Media metadata(MediaMetadata metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * Get metadata
+   * @return metadata
+  **/
+  @ApiModelProperty(value = "")
+  public MediaMetadata getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(MediaMetadata metadata) {
+    this.metadata = metadata;
+  }
+
   public Media site(String site) {
     this.site = site;
     return this;
@@ -375,6 +397,7 @@ public class Media {
         Objects.equals(this.files, media.files) &&
         Objects.equals(this.height, media.height) &&
         Objects.equals(this.id, media.id) &&
+        Objects.equals(this.metadata, media.metadata) &&
         Objects.equals(this.site, media.site) &&
         Objects.equals(this.title, media.title) &&
         Objects.equals(this.type, media.type) &&
@@ -384,7 +407,7 @@ public class Media {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adult, authors, canonical, description, duration, embedHtml, embedUrl, files, height, id, site, title, type, url, width);
+    return Objects.hash(adult, authors, canonical, description, duration, embedHtml, embedUrl, files, height, id, metadata, site, title, type, url, width);
   }
 
 
@@ -403,6 +426,7 @@ public class Media {
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    site: ").append(toIndentedString(site)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
